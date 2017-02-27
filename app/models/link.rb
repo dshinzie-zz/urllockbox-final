@@ -10,16 +10,16 @@ class Link < ApplicationRecord
   validates :title, :url, presence: true
   belongs_to :user
 
-  # after_update :publish_link
+  after_update :publish_link
 
   def invalid_link?
     uri = URI.parse(self.url)
     uri.host.nil?
   end
 
-  # def publish_link
-  #   pubsub = PubSub.new
-  #   link = { lockbox_id: self.id, url: self.url, title: self.title, read: self.read, user_id: self.user_id }
-  #   pubsub.publish_to_queue(link)
-  # end
+  def publish_link
+    publisher = Publisher.new
+    link = { lockbox_id: id, url: url, title: title, read: read, user_id: user_id }
+    publisher.publish_to_queue(link)
+  end
 end

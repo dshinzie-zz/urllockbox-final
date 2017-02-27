@@ -17,6 +17,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'better_errors', group: :development
 gem 'react-rails'
 gem 'sprockets-es6'
+gem 'bunny'
+gem 'figaro'
 
 # gem 'unicorn'
 

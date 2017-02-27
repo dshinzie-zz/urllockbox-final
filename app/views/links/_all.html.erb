@@ -11,9 +11,9 @@
   <tbody>
     <% @links.each do |link| %>
     <tr id= <%=link.id %> >
-      <td class="link-title"><%= link.title %></td>
-      <td class="link-url"><%= link.url %></td>
-      <td class="read-status"><%= link.read %></td>
+      <td class="link-title" name="title"><%= link.title %></td>
+      <td class="link-url" name="url"><%= link.url %></td>
+      <td class="read-status" name="read"><%= link.read %></td>
       <td><button type="button" name="mark-as-read" class="mark-read button btn btn-small waves-effect waves-light">Mark as Read</button></td>
       <td><button type="button" name="edit" class="edit button btn btn-small waves-effect waves-light">Edit</button></td>
     </tr>

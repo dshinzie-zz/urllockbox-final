@@ -16,7 +16,6 @@ function updateEditLink(self, newTitle, newUrl, newStatus){
   self.parents('tr').find(".read-status").text(newStatus);
 
   removeBorder(self);
-  toggleText(self);
 }
 
 function toggleText(self){
@@ -38,14 +37,14 @@ function submitEdit(event, oldValues){
     updateEditLink($this, newValues.title, newValues.url, newValues.status);
   }).fail(function(error){
     updateEditLink($this, oldValues.title, oldValues.url, oldValues.status);
-    $("#notice").html(JSON.parse(error.responseText).join(","));
+    $("#notice").html(error.responseText);
   });
 }
 
 function getValues(self){
   var currentTitle = self.parents('tr').find('.link-title').text();
   var currentUrl = self.parents('tr').find('.link-url').text();
-  var currentStatus = self.parents('tr').find('.link-status').text();
+  var currentStatus = self.parents('tr').find('.read-status').text();
 
   return {
     title: currentTitle,
@@ -55,6 +54,9 @@ function getValues(self){
 }
 
 $(document).ready(function(){
+  $("#notice").html("");
+  $(".alert-warning").text("")
+
   $("tbody").on("click", ".edit", function(event){
     $this = $(this);
     toggleText($this)

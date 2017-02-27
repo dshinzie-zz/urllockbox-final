@@ -17,8 +17,8 @@ describe "as an authenticated user", :js => :true do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit root_path
-      fill_in "link[url]", with: "Turing"
-      fill_in "link[title]", with: "http://turing.io"
+      fill_in "link[title]", with: "Turing"
+      fill_in "link[url]", with: "https://www.google.com"
       click_on "Create Link"
 
       within('#links-list') do

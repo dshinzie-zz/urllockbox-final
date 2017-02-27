@@ -55,7 +55,6 @@ function getValues(self){
 
 $(document).ready(function(){
   $("#notice").html("");
-  $(".alert-warning").text("")
 
   $("tbody").on("click", ".edit", function(event){
     $this = $(this);

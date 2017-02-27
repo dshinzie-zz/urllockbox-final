@@ -8,7 +8,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @links = current_user.links
+    @links = current_user.links.existing
     @link = current_user.links.new(link_params)
 
     if(@link.invalid_link?)

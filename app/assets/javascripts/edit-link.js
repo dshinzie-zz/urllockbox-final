@@ -38,9 +38,9 @@ function submitEdit(event){
   }).done(function(){
     console.log("Update Successful")
     updateEditLink($this, newTitle, newUrl, newStatus);
-  }).fail(function(){
+  }).fail(function(error){
     removeBorder($this);
-    alert("Update failed.")
+    $("#notice").html(JSON.parse(error.responseText).join(","));
   });
 }
 

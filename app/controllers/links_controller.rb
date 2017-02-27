@@ -1,9 +1,8 @@
 class LinksController < ApplicationController
   def index
-    @hot_links = Link.hot
     if(logged_in?)
       @link = Link.new
-      @links = current_user.links.order(updated_at: :desc)
+      @links = current_user.links.existing
     end
   end
 
@@ -26,5 +25,13 @@ class LinksController < ApplicationController
   private
     def link_params
       params.require(:link).permit(:url, :title, :read)
+    end
+
+    def check_for_updates
+      connection = Bunny.new({:host => "experiments.turing.io", :port => "5672", :user => "student", :pass => "PLDa{g7t4Fy@47H"})
+      # connection = Bunny.new(ENV["publisher"])
+      pubsub = PubSub.new(connection)
+      
+      Link.get_top_lnks(pubsub)
     end
 end

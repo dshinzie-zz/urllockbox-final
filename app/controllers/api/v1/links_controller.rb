@@ -12,12 +12,11 @@ class Api::V1::LinksController < ApplicationController
   def update
     @link = Link.find params[:id]
     @link.assign_attributes link_params
-    just_read = @link.read_changed? && @link.read
 
     if(@link.invalid_link?)
       render json: "Invalid Link", status: 500
     elsif @link.save
-      Read.create(link: @link) if just_read
+      
       head :no_content
     else
       render json: @link.errors.full_messages.join(","), status: 500

@@ -1,16 +1,7 @@
 <% if logged_in? %>
   <%= link_to "Logout", logout_path, class: "link" %>
-
-  <form id="new-link">
-    <label>URL:
-      <input id="link-url">
-    </label>
-    <label>Title:
-      <input id="link-title">
-    </label>
-    <input type="submit" value="Add Link">
-    <div id="links-list"></div>
-  </form>
+  <%= render partial: "new" %>
+  <%= render partial: "all" %>
 
 <% else %>
   <h1><%= link_to "Sign Up", signup_path, class: "link" %></h1>

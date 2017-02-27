@@ -1,5 +1,6 @@
 <% if logged_in? %>
   <%= link_to "Logout", logout_path, class: "link" %>
+
   <form id="new-link">
     <label>URL:
       <input id="link-url">
@@ -10,8 +11,9 @@
     <input type="submit" value="Add Link">
     <div id="links-list"></div>
   </form>
+
 <% else %>
-  <h1><%= link_to "Sign Up", new_user_path, class: "link" %></h1>
+  <h1><%= link_to "Sign Up", signup_path, class: "link" %></h1>
   <h3>or</h3>
   <h1><%= link_to "Login", login_path, class: "link" %></h1>
 <% end %>

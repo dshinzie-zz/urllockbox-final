@@ -1,21 +1,17 @@
-<form id="new-link">
-  <label>URL:
-    <input id="link-url">
-  </label>
-  <label>Title:
-    <input id="link-title">
-  </label>
-  <input type="submit" value="Add Link">
-</form>
-
-<div id="links-list"></div>
-
-<h2>Hot Reads!</h2>
-<ol id="hot-reads">
-<% @hot_links.each do |read| %>
-  <li class='hot-read'>
-    <a href="<%= read.url %>"><%= read.url %></a>
-  </li>
+<% if logged_in? %>
+  <%= link_to "Logout", logout_path, class: "link" %>
+  <form id="new-link">
+    <label>URL:
+      <input id="link-url">
+    </label>
+    <label>Title:
+      <input id="link-title">
+    </label>
+    <input type="submit" value="Add Link">
+    <div id="links-list"></div>
+  </form>
+<% else %>
+  <h1><%= link_to "Sign Up", new_user_path, class: "link" %></h1>
+  <h3>or</h3>
+  <h1><%= link_to "Login", login_path, class: "link" %></h1>
 <% end %>
-</ol>
-<img src="https://m.popkey.co/4c7272/QL6mJ.gif">

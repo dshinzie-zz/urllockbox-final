@@ -1,8 +1,9 @@
 class Publisher
+  Publisher
   attr_reader :lockbox_to_hotreads_queue
 
-  def initialize
-    connection = Bunny.new({:host => "experiments.turing.io", :port => "5672", :user => "student", :pass => "PLDa{g7t4Fy@47H"})
+  def initialize(connection)
+    # connection = Bunny.new({:host => "experiments.turing.io", :port => "5672", :user => "student", :pass => "PLDa{g7t4Fy@47H"})
     # connection = Bunny.new(ENV["publisher"])
     create_channel(connection)
   end

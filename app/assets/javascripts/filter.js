@@ -4,7 +4,7 @@ $(document).ready(function(){
     var rows = $('tbody tr').hide();
 
     if (this.value.length) {
-      var data = t.value.split(" ");
+      var data = this.value.split(" ");
 
       $.each(data, function (index, value) {
         rows.filter(function(){

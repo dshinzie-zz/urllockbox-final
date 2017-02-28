@@ -1,7 +1,6 @@
 
 $(document).ready(function(){
   $("#search").keyup(function(){
-
     var rows = $('tbody tr').hide();
 
     if (this.value.length) {
@@ -15,5 +14,31 @@ $(document).ready(function(){
     } else {
       rows.show();
     }
-  })
+  });
+
+  $("#unread-links").on("click", function(event){
+    var tRows = $('tbody tr');
+
+    for (var i = 0; i < tRows.length; i++) {
+      if($(tRows[i]).find('.read-status').text() == "true"){
+        $(tRows[i]).hide();
+      } else {
+        $(tRows[i]).show();
+      }
+    }
+  });
+
+  $("#read-links").on("click", function(event){
+    var tRows = $('tbody tr');
+
+    for (var i = 0; i < tRows.length; i++) {
+      if($(tRows[i]).find('.read-status').text() == "false"){
+        $(tRows[i]).hide();
+      } else {
+        $(tRows[i]).show();
+      }
+    }
+  });
+
+
 })

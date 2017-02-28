@@ -1,6 +1,10 @@
 <% if logged_in? %>
   <%= link_to "Logout", logout_path, class: "link" %>
-  <%= render partial: "new" %>
+  <%= render partial: "new" %></br>
+
+  <input type="text" id="search" placeholder="Filter here">
+  <button id="unread-links" class="button btn btn-small waves-effect waves-light">Only Unread Links</button>
+  <button id="read-links" class="button btn btn-small waves-effect waves-light">Only Unread Links</button>
   <%= render partial: "all" %>
 
 <% else %>

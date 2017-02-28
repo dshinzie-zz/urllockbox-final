@@ -1,13 +1,12 @@
 class LinksController < ApplicationController
+  before_filter :current_links
+
   def index
-    if(logged_in?)
-      @link = Link.new
-      @links = current_user.links.existing
-    end
+    check_for_updates
+    @link = Link.new if(logged_in?)
   end
 
   def create
-    @links = current_user.links.existing
     @link = current_user.links.new(link_params)
 
     if(@link.invalid_link?)
@@ -27,11 +26,11 @@ class LinksController < ApplicationController
       params.require(:link).permit(:url, :title, :read)
     end
 
+    def current_links
+      @links = current_user.links.existing
+    end
+
     def check_for_updates
-      connection = Bunny.new({:host => "experiments.turing.io", :port => "5672", :user => "student", :pass => "PLDa{g7t4Fy@47H"})
-      # connection = Bunny.new(ENV["publisher"])
-      pubsub = PubSub.new(connection)
-      
-      Link.get_top_lnks(pubsub)
+      Link.get_top_links
     end
 end

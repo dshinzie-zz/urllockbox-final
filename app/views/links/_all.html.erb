@@ -53,14 +53,14 @@ $(document).ready(function(){
 
   console.log(hotReads);
   $.ajax({
-    url: 'http://localhost:3001/api/v1/top_ten',
+    url: 'https://fierce-sands-45316.herokuapp.com/api/v1/top_ten',
     method: 'GET',
   }).done(function(data){
     topTen(data)
   });
 
   $.ajax({
-    url: 'http://localhost:3001/api/v1/top_link',
+    url: 'https://fierce-sands-45316.herokuapp.com/api/v1/top_link',
     method: 'GET',
   }).done(function(data){
     topLink(data)

@@ -1,6 +1,6 @@
 # UrlLockBox
 
-UrlLockBox is a site an index for a user's favorite websites. Users can sign in and create new links that will either mark as read or unread. Links that are marked as read will be sent over to a third party application, HotReads, which will then aggregate the most popular links.
+UrlLockBox is an index for a user's favorite websites. Users can sign in and create new links that will either mark as read or unread. Links that are marked as read will be sent over to a third party application, HotReads, which will then aggregate the most popular links.
 
 ## Functionality
 ### Sign In

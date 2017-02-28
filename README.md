@@ -11,6 +11,8 @@ The index page will have a form to create a new link as well as the user's curre
 
 The page can also be filtered by text or by read status. The filter is case insensitive and will search for any of the fields. Users can click the Filter by Read or Filter by Unread buttons to filter the page accordingly.
 
+The index page will hit HotReads API endpoints on load in order grab the top ten links and the most popular link. The top ten links will have "HOT" marked next to them, and the top link will "Top Link" marked next to them. 
+
 ### API
 UrLockBox has two internal API endpoints, one for updating links and one for creating new links.
 

@@ -5,7 +5,8 @@
     <tr>
       <th>Title</th>
       <th>Url</th>
-      <th>Read?
+      <th>Read?</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,3 +21,47 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+function topTen(data){
+  tRow = $('tbody tr');
+  for (var i = 0; i < tRow.length; i++) {
+    tableUrl = $(tRow[i]).find('td.link-url').text()
+
+    for (var j = 0; j < data.length; j++) {
+      if(tableUrl == data[j].url){
+        $(tRow[i]).find('td:last').append(" TOP TEN ");
+      }
+    }
+  }
+}
+
+function topLink(data){
+  tRow = $('tbody tr');
+  for (var i = 0; i < tRow.length; i++) {
+    tableUrl = $(tRow[i]).find('td.link-url').text()
+
+    if(tableUrl == data.url){
+      $(tRow[i]).find('td:last').append(" TOP LINK ");
+    }
+  }
+}
+
+
+$(document).ready(function(){
+  $.ajax({
+    url: 'http://localhost:3001/api/v1/top_ten',
+    method: 'GET',
+  }).done(function(data){
+    topTen(data)
+  });
+
+  $.ajax({
+    url: 'http://localhost:3001/api/v1/top_link',
+    method: 'GET',
+  }).done(function(data){
+    topLink(data)
+  });
+})
+
+</script>

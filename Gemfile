@@ -20,6 +20,7 @@ gem 'sprockets-es6'
 gem 'bunny'
 gem 'figaro'
 gem 'bunny-mock'
+gem 'rack-cors'
 
 # gem 'unicorn'
 

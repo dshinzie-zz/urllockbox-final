@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_filter :current_links
 
   def index
-    check_for_updates
+    # check_for_updates
     @link = Link.new if(logged_in?)
   end
 
@@ -28,11 +28,6 @@ class LinksController < ApplicationController
 
     def current_links
       @links = current_user.links.existing
-      @top_link = Links.where(top_link: true)
-      @top_ten = Link.where(top_ten: true)
     end
 
-    def check_for_updates
-      Link.get_top_links
-    end
 end

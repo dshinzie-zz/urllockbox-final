@@ -28,6 +28,8 @@ class LinksController < ApplicationController
 
     def current_links
       @links = current_user.links.existing
+      @top_link = Links.where(top_link: true)
+      @top_ten = Link.where(top_ten: true)
     end
 
     def check_for_updates

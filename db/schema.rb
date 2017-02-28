@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170228000334) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "top_ten",    default: false
     t.boolean  "top_link",   default: false
     t.index ["user_id"], name: "index_links_on_user_id", using: :btree
   end

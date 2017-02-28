@@ -25,6 +25,7 @@ class Link < ApplicationRecord
     # connection = Bunny.new(ENV["publisher"])
 
     pubsub = PubSub.new(connection)
+    pubsub.subscribe_to_queue_top
     pubsub.subscribe_to_queue
   end
 end

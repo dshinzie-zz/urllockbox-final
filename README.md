@@ -1,25 +1,39 @@
-# URLockBox
+# UrlLockBox
 
-## MidModule Assessment
+HotReads is a site an index for a user's favorite websites. Users can sign in and create new links that will either mark as read or unread. Links that are marked as read will be sent over to a third party application, HotReads, which will then aggregate the most popular links.
 
-The URLockbox is a starter app for the mid-module assessment for backend engineering module4 at TuringSchool of Software and Design.
+## Functionality
+### Sign In
+Users can visit the index page and either create an account or log in with an existing account. Users must provide an email address to create an account.
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
+### Index
+The index page will have a form to create a new link as well as the user's current list of links. Links that are read will have a strikethrough the text. Links can be marked as read or unread. URL's must be valid.
 
-### Testing with PhantomJS using poltergeist
+The page can also be filtered by text or by read status. The filter is case insensitive and will search for any of the fields. Users can click the Filter by Read or Filter by Unread buttons to filter the page accordingly.
 
-The app has phantom.js, a headless webdriver installed for JS testing.
+### API
+UrLockBox has two internal API endpoints, one for updating links and one for creating new links.
 
-#### Setup
+Top Link:
+```shell
+/api/v1/links
+```
 
-To set it up you will just need to run `npm install phantomjs -g`. Everything else will be installed with Bundle.
+Top Ten Links:
+```shell
+/api/v1/links/:link_id
+```
 
-#### Use
+Endpoints will return as JSON and will display the link for the endpoints.
 
-You can then write capybara feature tests and add `js: true` tag to each test the has JavaScript.  Your tests will execute and recognize your JavaScript.
+## Testing
+Message queues were mocked through BunnyMock. Testing is done in RSpec and Capybara, and Poltergeist for the JavaScript client side tests. 
 
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
+## Technology
+The application is currently using the following technlogies:
 
-#### Your JavaScript
+* Server: Ruby On Rails 5.0.1
+* Client-side: ERB, JavaScript
+* Database: PostgreSQL
+* Libraries: JQuery, BunnyMQ
 
-The major __GOTCHA__ here is that phantomjs doesn't recognize es6. So if you write es6 you will need to make your file extenstion `.js.es6`. You should see an example test in the `spec/features` directory.

@@ -10,7 +10,6 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
-
     @link = Link.find params[:id]
     @link.assign_attributes link_params
 

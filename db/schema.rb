@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228000334) do
+ActiveRecord::Schema.define(version: 20170104174433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20170228000334) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "top_ten",    default: false
-    t.boolean  "top_link",   default: false
     t.index ["user_id"], name: "index_links_on_user_id", using: :btree
   end
 

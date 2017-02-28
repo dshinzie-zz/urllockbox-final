@@ -30,7 +30,7 @@ function topTen(data){
 
     for (var j = 0; j < data.length; j++) {
       if(tableUrl == data[j].url){
-        $(tRow[i]).find('td:last').append(" TOP TEN ");
+        $(tRow[i]).find('td:last').append("   HOT!   ");
       }
     }
   }
@@ -42,11 +42,10 @@ function topLink(data){
     tableUrl = $(tRow[i]).find('td.link-url').text()
 
     if(tableUrl == data.url){
-      $(tRow[i]).find('td:last').append(" TOP LINK ");
+      $(tRow[i]).find('td:last').append(" <span><strong>TOP LINK</strong></span>  ");
     }
   }
 }
-
 
 $(document).ready(function(){
   $.ajax({

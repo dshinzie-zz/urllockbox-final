@@ -7,7 +7,7 @@ describe "publisher" do
       link = user.links.create(title: "Test", url: "https://www.test.com", read: "read")
 
       connection = BunnyMock.new
-      publisher = Publisher.new(connection)
+      publisher = PubSub.new(connection)
       link = { lockbox_id: link.id, url: link.url, title: link.title, read: link.read, user_id: user.id }
       publication = publisher.publish_to_queue(link)
 

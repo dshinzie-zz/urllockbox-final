@@ -2,7 +2,6 @@ class LinksController < ApplicationController
   before_filter :current_links
 
   def index
-    # check_for_updates
     @link = Link.new if(logged_in?)
   end
 
@@ -27,7 +26,7 @@ class LinksController < ApplicationController
     end
 
     def current_links
-      @links = current_user.links.existing
+      @links = current_user.links.existing if logged_in?
     end
 
 end

@@ -56,7 +56,7 @@ function getValues(self){
 $(document).ready(function(){
   $("#notice").html("");
 
-  $("tbody").on("click", ".edit", function(event){
+  $("tbody").on("click", "button.edit", function(event){
     $this = $(this);
     toggleText($this)
     addBorder($this);

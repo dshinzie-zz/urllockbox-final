@@ -1,12 +1,12 @@
 var $newLinkTitle, $newLinkUrl;
 
 function updateLink(self, newStatus){
-  toggleText(self)
+  toggleMarkText(self)
   toggleStrike(self, newStatus);
   self.parents('tr').children('td.read-status').text(newStatus)
 }
 
-function toggleText(self){
+function toggleMarkText(self){
   textValue = self.text();
   self.text(textValue == "Mark as Read" ? "Mark as Unread" : "Mark as Read");
 }
